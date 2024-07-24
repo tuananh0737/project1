@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Books</title>
+    <link rel="stylesheet" href="CSS/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Bookreads</h1>
+      <nav>
+        <ul>
+          <li><a href="#" >Home</a></li>
+          <li><a href="#" id="search-link">Search Books</a></li>
+          <li><a href="#" id="my-books-link">My Books</a></li>
+          <li><a href="#" id="login-link">Log In</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>My Books</h2>
+      <ul id="my-books"></ul>
+    </main>
+    <footer>
+      <p>&copy; 2023 Bookreads</p>
+    </footer>
+    <script>
+      const myBooks = document.querySelector('#my-books');
+      const myBooksData = JSON.parse(localStorage.getItem('myBooks'));
+
+      if (myBooksData) {
+        myBooksData.forEach((book) => {
+          const newBook = document.createElement('li');
+          const bookInfo = document.createElement('span');
+          const deleteButton = document.createElement('button');
+
+          bookInfo.textContent = `${book.title} by ${book.author}`;
+          deleteButton.textContent = 'Remove';
+
+          newBook.appendChild(bookInfo);
+          newBook.appendChild(deleteButton);
+          myBooks.appendChild(newBook);
+
+          deleteButton.addEventListener('click', () => {
+            myBooksData = myBooksData.filter((item) => item.title !== book.title);
+            localStorage.setItem('myBooks', JSON.stringify(myBooksData));
+            myBooks.removeChild(newBook);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

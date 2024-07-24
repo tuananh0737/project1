@@ -1,0 +1,80 @@
+/* Thiết lập font chữ và margin và padding mặc định cho toàn bộ trang */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Thiết lập font chữ và margin cho tiêu đề */
+header h1 {
+  font-size: 2em;
+  margin: 1em;
+}
+
+/* Thiết lập định dạng cho form đăng nhập */
+form {
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 1em;
+}
+
+/* Thiết lập định dạng cho label và input */
+label, input {
+  display: block;
+  margin-bottom: 0.5em;
+  width: 100%;
+}
+
+/* Thiết lập định dạng cho input khi được focus */
+input:focus {
+  outline: 2px solid #4CAF50;
+}
+
+/* Thiết lập định dạng cho nút đăng nhập */
+button[type="submit"] {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  width: 100%;
+}
+
+/* Thiết lập định dạng cho nút đăng nhập khi hover */
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Thiết lập định dạng cho div chứa nút đăng nhập */
+div:last-of-type {
+  text-align: center;
+}
+
+/* Thiết lập định dạng cho nút Sign Up */
+button[type="Signup"] {
+  background-color: #008CBA;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  width: 100%;
+}
+
+/* Thiết lập định dạng cho nút Sign Up khi hover */
+button[type="Signup"]:hover {
+  background-color: #007A99;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

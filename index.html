@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bookreads</title>
+    <link rel="stylesheet" href="CSS/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Bookreads</h1>
+      <nav>
+        <ul>
+          <li><a href="#" >Home</a></li>
+          <li><a href="#" id="search-link">Search Books</a></li>
+          <li><a href="#" id="#my-books">My Books</a></li>
+          <li><a href="#" id="login-link">Log In</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Sách nổi bật</h2>
+      <div class="book">
+        <img src="image/book1.jpg" alt="Book 1">
+        <h3>Bảo bối tử thần</h3>
+        <p>J.K Rowling</p>
+        <p>Rating: 4.5/5</p>
+        <button>Add to My Books</button>
+      </div>
+      <div class="book">
+        <img src="image/book2.jpg" alt="Book 2">
+        <h3>Hội phượng hoàng</h3>
+        <p>J.K Rowling</p>
+        <p>Rating: 4.2/5</p>
+        <button>Add to My Books</button>
+      </div>
+      <div class="book">
+        <img src="image/book3.jpg" alt="Book 3">
+        <h3>Hòn đá phù thủy</h3>
+        <p>J.K Rowling</p>
+        <p>Rating: 4.7/5</p>
+        <button>Add to My Books</button>
+      </div>
+    </main>
+    <p>&copy; 
+        <a href="https://spaces.w3schools.com/space/mybookhust">w3schools </a>
+      </p>    <script>
+      
+      const addButton = document.querySelectorAll('.book button');
+      const myBooks = document.querySelector('#my-books');
+      const searchLink = document.querySelector('#search-link');
+      const loginLink = document.querySelector('#login-link');
+      const searchButton = document.createElement('button');
+      const redirectToLogin = () => {
+          window.location.href = 'login.html';
+        };
+
+
+        loginLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          redirectToLogin();
+        });
+
+        const redirectToSearch = () => {
+          window.location.href = 'search.html';
+        };
+        searchLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          redirectToSearch();
+        });
+
+        addButton.forEach((button) => {
+          button.addEventListener('click', () => {
+          });
+        });
+
+        addButton.forEach((button) => {
+          button.addEventListener('click', () => {
+            const book = button.parentNode;
+            const title = book.querySelector('h3').textContent;
+            const author = book.querySelector('p:first-of-type').textContent;
+
+            const newBook = document.createElement('li');
+            const bookInfo = document.createElement('span');
+            const deleteButton = document.createElement('button');
+
+            bookInfo.textContent = `${title} by ${author}`;
+            deleteButton.textContent = 'Remove';
+
+            newBook.appendChild(bookInfo);
+            newBook.appendChild(deleteButton);
+            myBooks.appendChild(newBook);
+
+            button.textContent = 'Added';
+            button.disabled = true;
+
+            deleteButton.addEventListener('click', () => {
+              myBooks.removeChild(newBook);
+              button.textContent = 'Add to My Books';
+              button.disabled = false;
+            });
+          });
+        });
+
+        searchForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const searchKeyword = searchInput.value;
+          console.log('Search keyword:', searchKeyword);
+        });
+
+    </script>
+  </body>
+</html>

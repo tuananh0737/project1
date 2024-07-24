@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/login.css">
+  </head>
+  <body>
+    <header>
+      <h1>Login</h1>
+    </header>
+    <main>
+      <form action="login.php" method="POST">
+        <div>
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+          <button type="submit">Log In</button>
+        </div>
+        <div>
+          <button type="Signup" onclick="redirectToSignup()">Sign Up</button>
+        </div>
+      </form>
+      <footer>
+      <p>&copy; 
+        <a href="https://spaces.w3schools.com/space/mybookhust">w3schools </a>
+      </p>
+    </footer>
+    </main>
+    <script>
+      function redirectToSignup() {
+        window.location.href = "signup.html";
+      }
+    </script>
+  </body>
+</html>
